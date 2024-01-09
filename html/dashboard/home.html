@@ -1,0 +1,87 @@
+{% extends 'account/base.html' %}
+{% load static %}
+{% load socialaccount %}
+{% load get_picture %}
+{% block content %}
+<!-- <div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h3 class="text-center">Welcome to UVA Events</h3>
+                </div>
+                <div class="card-body">
+                    <h4>Hello, {{ user.first_name|default:"UVA Student" }}!</h4>
+                    <p>Ready to explore the latest happenings around our university? This platform will keep you informed and connected.</p>
+                    {% if user.is_authenticated %}
+                    <p><strong>Account:</strong> {{ user.email }}</p>
+                        {% if user.is_staff %}
+                        <p><strong>Status:</strong> Admin</p>
+                        {% else %}
+                        <p><strong>Status:</strong> General user</p>
+                        {% endif %}
+                    {% else %}
+                    <p style="color:red"><strong>Please login to access UVA events!</strong></p>
+                    {% endif %}
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="content-block" style="height: 92vh">
+    <div class="landing-page-content-main">
+        <div class="row">
+            <span>
+                Welcome to<br>UVA Events
+            </span>
+        </div>
+        <div class="row subtitle" style="width: 405px;">
+            <span>
+                Who Needs Doorlist Anyways?
+            </span>
+        </div>
+    </div>
+    <div class="landing-page-content-getstarted">
+        {% if not user.is_authenticated %}
+        <h4> Log in, CavMan </h4>
+        <h5> Get Started and See What's Happening</h5>
+        <img src="{% static 'img/unknown-user-cavman.png' %}" class="login-prof-img">
+        <h6> <span class="user-class-text">CavMan?</span> Is that you?</h6>
+        <a title="{{provider.name}}" class="btn btn-outline-dark rounded-pill px-4 login-button" style="border:2px solid #121212" href="{% provider_login_url 'google'%}">
+            Login with
+            <img 
+                 src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c51f.png" 
+                 alt="{{ provider.name }}" 
+                 height="20"
+             />
+         </a>
+         {% else %}
+            {% if user.is_staff %}
+                <h4> Hey {{user.first_name | default:"CavMan"}}! </h4>
+                <h5> Let's Plan Something For Tonight.</h5>
+                <a href="{% url 'admin_dash'%}">
+                    <img src="{{ user|get_picture }}" class="login-prof-img">
+                </a>
+                <h6> You are a <span class="user-class-text-admin" >HOST</span> </h6>
+                <a class="btn btn-outline-dark rounded-pill px-4 login-button" style="border:2px solid #121212" href="{% url 'create_event' %}">
+                    Create an Event!
+                </a>
+                <a class="signout-small" href="{% url 'account_logout' %}">Sign Out</a>
+            {% else %}
+                <h4> Hey {{user.first_name | default:"CavMan"}}! </h4>
+                <h5> Let's Go Out Tonight.</h5>
+                <a href="{% url 'user_dash'%}">
+                    <img src="{{ user|get_picture }}" class="login-prof-img">
+                </a>
+                <h6> You are a <span class="user-class-text-user" >USER</span> </h6>
+                <a class="btn btn-outline-dark rounded-pill px-4 login-button" style="border:2px solid #121212" href="{% url 'all_events' %}">
+                    Find an Event!
+                </a>
+                <a class="signout-small" href="{% url 'account_logout' %}">Sign Out</a>
+            {% endif %}
+         {% endif %}
+
+    </div>
+</div>
+{% endblock %}

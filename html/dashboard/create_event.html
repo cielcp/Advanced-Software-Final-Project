@@ -1,0 +1,64 @@
+{% extends 'account/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="content-block" style="height: 92vh; width: 100vw; display: flex; flex-direction: row; justify-content: center; align-items: center;">
+    <div class="event-view-block">
+        <div class="event-view-title">
+            <h4> Create a New Event </h4>
+        </div>
+        <div class="event-view-body">
+            {{ form.media }}
+            <form action="" method="POST" style="display: flex; flex-direction: row; gap: 25px; width: 100%;">
+                {% csrf_token %}
+                <div class="event-view-host-info">
+                    <!-- Event name -->
+                    <label for="{{ form.name.id_for_label }}" class="form-label">Event Name</label>
+                    <input type="text" class="form-control" id="{{ form.name.id_for_label }}" name="{{ form.name.name }}">
+
+                    <!-- Event Location -->
+                    <label for="{{ form.address.id_for_label }}" class="form-label" style="margin-top: 8px;">Location</label>
+                    <input type="text" class="form-control" id="{{ form.address.id_for_label }}" name="{{ form.address.name }}" placeholder="Enter the address of your event." autocomplete="off">
+
+                    <!-- Event Start Time -->
+                    <label for="{{ form.start_datetime.id_for_label }}" class="form-label" style="margin-top: 8px">Choose a start date and time:</label>
+                    <br>{{ form.start_datetime }}
+                    <br>{{ form.start_datetime.errors }}
+                    <br>
+                    <!-- Event End Time -->
+                    <label for="{{ form.end_datetime.id_for_label }}" class="form-label" style="margin-top: 8px">Choose an end date and time:</label>
+                    <br>{{ form.end_datetime }}
+                    <br>{{ form.end_datetime.errors }}
+                </div>
+                <div class="event-view-host-info">
+                    <!-- Event Description -->
+                    <label for="{{ form.description.id_for_label }}" class="form-label">Description</label>
+                    <textarea rows="10" style="resize: none" maxlength="300" class="form-control" id="{{ form.description.id_for_label }}" name="{{ form.description.name }}"></textarea>
+
+                    <!-- Event Submit -->
+                    <button type="submit" class="btn btn-dark rounded-pill px-4" style="display: block; margin-top: 25px; ">Create Event</button>
+                </div>
+            </form>
+        </div>
+        <div class="event-view-footer" >
+            {% if message %}
+            {% if status %}
+            <h5 style="color:green"> {{message}} </h5>
+            {% else %}
+            <h5 style="color:red"> {{message}} </h5>
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+<!-- Add the Google Maps API script -->
+<!-- Got permissions working! -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACbnTlCUWNwZd33XSLulbyx8WUfJBOvxQ&libraries=places"></script>
+
+<script>
+    var input = document.getElementById('{{ form.address.id_for_label }}');
+    var autocomplete = new google.maps.places.Autocomplete(input);
+</script>
+
+{% endblock %}

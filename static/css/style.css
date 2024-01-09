@@ -1,0 +1,671 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #F7F7F7;
+    padding: 0 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 40px;
+    color: #232D4B;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;  /* Added to give some space above the button */
+}
+
+.hidden-radio {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.option {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex: 1;  /* Each option takes equal space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s;
+    border: 2px solid transparent;
+    margin: 0 1%;
+    position: relative;
+}
+
+.option label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.option:hover {
+    transform: scale(1.03);
+}
+
+.option img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.option span {
+    font-size: 16px;
+    color: #333;
+}
+
+.option.selected {
+    border-color: #232D4B;
+}
+
+.submit-btn {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;  /* Center the button */
+}
+
+#submitBtn {
+    background-color: #222529;
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 40px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#submitBtn:hover {
+    background-color: #D43F00;
+}
+
+#submitBtn:disabled {
+    background-color: #dcdcdc;
+    cursor: not-allowed;
+}
+
+.back-arrow {
+    position: absolute;
+    top: 80px;
+    left: 50px;
+    z-index: 1000;
+    padding: 8px;
+    border-radius: 50px;
+    background-color: #e9d0c6;
+}
+
+.back-arrow img {
+    width: 40px;
+    height: auto;
+}
+
+/* 
+    All Events Page
+    author: Elliott Hansen
+*/
+
+.main-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 93vh;
+    overflow: hidden;
+}
+
+.events-container {
+    flex: 1;
+    height: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 55px;
+    padding-top: 125px;
+    background-color: #121212;
+    overflow-y: auto;
+    gap: 35px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #414345;
+}
+
+.events-container > .event-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid #414345;
+    border-radius: 28px;
+    width: 100%;
+    min-height: 95px;
+    transition: 0.15s;
+    padding-left: 30px;
+    padding-right: 30px;
+    gap: 15px;
+}
+.events-container * {
+    font-family: Titan One;
+}
+
+.events-container-title {
+    position: absolute;
+    top: 30px;
+    color: #dcdcdc;
+    font-size: 45px;
+}
+
+.event-box:hover {
+    scale: 102%;
+}
+
+.event-title {
+    color: white;
+    font-size: 22px;
+    max-width: 295px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.event-info {
+    display: flex;
+    line-height: auto;
+    flex-direction: column;
+    text-align: left;
+    color: white;
+    font-size: 12px;
+}
+.event-info span {
+    max-width: 260px;
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: white;
+}
+.event-info * {
+    display: block;
+}
+.event-box .event-view-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    height: 50%;
+    margin-left: auto;
+}
+
+#map {
+    width: 100%;
+    height: 93vh;
+}
+
+/* 
+    Home Page
+    author: Elliott Hansen
+*/
+
+.content-block {
+    background-color: #121212 !important;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+@keyframes title-drop-in {
+    0% {
+        transform: translateY(200%);
+    }
+    90% {
+        transform: translateY(-5%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+.landing-page-content-main {
+    transform: translateY(200%);
+    animation: title-drop-in 0.8s 0.5s ease-in-out forwards normal;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-color: #eb6f28;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 120px;
+    margin-top: 80px;
+    width: 650px;
+    height: 380px;
+    box-shadow: 8px 8px 0px 1px #91370d;
+    position: relative;
+}
+
+.landing-page-content-getstarted * {
+    font-family: Titan One;
+}
+
+.landing-page-content-main .row {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.row > span {
+    font-family: Titan One;
+    font-size: 85px;
+    color: white;
+    text-align: center;
+}
+
+.subtitle > span {
+    font-size: 25px;
+    color: white;
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0%;
+        filter: blur(8px)
+    }
+    100% {
+        opacity: 100%;
+        filter: blur(0px);
+    }
+
+}
+.landing-page-content-getstarted {
+    opacity: 0%;
+    animation: fadein 0.8s 1.7s ease-out forwards normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e9d0c6;
+    box-shadow: 8px 8px 0px 1px #1f1f1f;
+    border-radius: 15px;
+    height: 550px;
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 90px;
+    gap: 15px;
+}
+
+.landing-page-content-getstarted > h4 {
+    width: 80%;
+    margin-top: 25px;
+    text-align: left;
+    font-family: Titan One;
+    font-size: 35px;
+    color: #121212;
+}
+
+.landing-page-content-getstarted h5 {
+    text-align: left;
+    width: 80%;
+    font-family: Titan One;
+    font-size: 25px;
+    color: #121212;
+}
+
+.login-prof-img {
+    border-radius: 50%;
+    height: 180px;
+    width: 180px;
+    border: 3px solid #121212;
+    transition: 0.3s;
+}
+
+.login-prof-img-lg {
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+    border: 3px solid #121212;
+    transition: 0.3s;
+}
+
+.login-prof-img:hover {
+    scale: 105%;
+}
+
+.login-button {
+    margin-top: 15px;
+    scale: 150%;
+}
+
+.signout-small {
+    margin-top: 25px;
+    color:#121212
+}
+
+/* 
+    Signout page
+    Author: Elliott Hansen
+*/
+.signout-block {
+    min-width: 600px;
+    width: 35vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.signout-block h2 {
+    font-family: Titan One;
+    font-size: 55px;
+    color: white;
+}
+
+.user-class-text-admin {
+    color: #508066;
+}
+
+.user-class-text-user {
+    color: #a16569;
+}
+
+/* 
+    Admin Dashboard & User Dashboard
+    Author: Elliott Hansen
+*/
+
+@keyframes profileappear {
+    0% {
+        transform: translateX(-200%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.user-profile {
+    transform: translateX(-200%);
+    animation: profileappear 0.8s 0.3s ease-out forwards normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    width: 500px;
+    height: 85vh;
+    margin-left: 80px;
+}
+
+.user-profile h2 {
+    margin-top: 35px;
+    font-family: Titan One;
+    font-size: 55px;
+    color: white;
+}
+
+.user-profile h3 {
+    margin-top: 5px;
+    font-family: Titan One;
+    font-size: 25px;
+    color: white;
+}
+
+.user-events {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 500px;
+    height: auto;
+    width: 45vw;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 35px;
+    overflow: hidden;
+}
+
+.admin {
+    box-shadow: 8px 8px 0px 1px #73ba93;
+    background-color: #508066;
+}
+
+.user {
+    box-shadow: 8px 8px 0px 1px #805053;
+    background-color: #a16569;
+}
+
+@keyframes hideevents {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+.overlay {
+    opacity: 0%;
+    animation: hideevents 0.8s 0.2s ease-out forwards normal;
+    position:absolute;
+    width: 105%;
+    height: 105%;
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+.overlay h2, .overlay a {
+    font-family: Titan One;
+    font-size: 25px;
+    color: white;
+}
+.overlay a {
+    font-size: 25px;
+}
+
+.admin-events {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 500px;
+    height: auto;
+    width: 45vw;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 35px;
+    overflow-y: scroll;
+}
+
+.admin-events h2, .user-events h2 {
+    font-family: Titan One;
+    font-size: 25px;
+    color: white;
+}
+
+.admin-events .admin-event-box {
+    width: 100%;
+    height: 140px;
+    background-color: #414345;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 16px;
+}
+
+.admin-event-box .event-title, .admin-event-box span {
+    font-family: Titan One;
+    color: #121212;
+}
+
+.admin-event-box .event-view-button, .user-event-box .event-view-button {
+    height: 50px;
+    width: 130px;
+    border-radius: 24px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-family: Titan One;
+    font-size: 24px;
+    border: 3px solid #414345;
+}
+
+.user-event-col {
+    width: 100%;
+    min-height: 80px;
+    height: auto;
+    overflow-y: auto;
+}
+
+.user-event-box {
+    align-items: center;
+    padding: 24px;
+    width: 100%;
+    margin-bottom: 25px;
+    border: 3px solid #414345;
+    min-height: 120px;
+    border-radius: 48px;
+    font-family: Titan One;
+    display: flex;
+    flex-direction: row;
+}
+
+.active {
+    background-color: #cab7af !important;
+    transition: 0.3s;
+}
+
+.active:hover {
+    scale: 102%;
+}
+
+/* 
+    Event View
+    Author: Elliott Hansen
+*/
+
+.event-view-block {
+    /* transform: translateY(200%); */
+    /* animation: title-drop-in 0.8s 0.5s ease-in-out normal forwards; */
+    width: 1000px;
+    height: 600px;
+    border-top-right-radius: 36px;
+    border-bottom-left-radius: 36px;
+    background-color: #cab7af;
+    box-shadow: 8px 8px 0px 1px #1f1f1f;
+    padding-left: 24px;
+    padding-right: 24px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.event-view-title {
+    border-bottom: 4px solid #a2948d;
+    height: 100px;
+    width: 100%;
+    text-align: left;
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.event-view-title h4 {
+    width: 100%;
+    font-size: 42px;
+    font-family: Titan One;
+    color: #121212;
+}
+
+.event-view-body {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    gap: 25px;
+}
+
+.event-view-host-info {
+    margin-top: 10px;
+    width: 50%;
+    height: 350px;
+}
+
+.event-view-host-info * {
+    font-family: Titan One;
+    color: #2f2f2f;
+}
+
+.event-view-footer {
+    border-top: 4px solid #a2948d;
+    height: 100px;
+    width: 100%;
+    margin-top: auto;
+    text-align: left;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.event-view-footer * {
+    font-family: Titan One;
+    color: #2f2f2f;
+}
+
+.error-message {
+    margin-left: auto;
+}
+
+.event-view-attendee {
+    display:flex;
+    flex-direction: row;
+}
+
+.event-view-attendee:hover {
+    background-color: #b8a9a1;
+}
+
+.event-view-attendee:hover .remove-attendee-btn {
+    opacity: 100%;
+}
+.remove-attendee-btn {
+    opacity: 0%;
+    margin-left: auto;
+    height: 21px;
+    width: 21px;
+}
+
+.remove-attendee-btn img {
+    width: 100%;
+    height: 100%;
+    filter: brightness(70%);
+}
+
+.remove-attendee-btn img:hover {
+    filter:brightness(85%);
+}
+

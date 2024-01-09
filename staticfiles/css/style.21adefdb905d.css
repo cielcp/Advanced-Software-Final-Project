@@ -1,0 +1,99 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #F7F7F7;
+    padding: 0 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 40px;
+    color: #232D4B;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;  /* Added to give some space above the button */
+}
+
+.hidden-radio {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.option {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex: 1;  /* Each option takes equal space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s;
+    border: 2px solid transparent;
+    margin: 0 1%;
+    position: relative;
+}
+
+.option label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.option:hover {
+    transform: scale(1.03);
+}
+
+.option img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.option span {
+    font-size: 16px;
+    color: #333;
+}
+
+.option.selected {
+    border-color: #232D4B;
+}
+
+.submit-btn {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;  /* Center the button */
+}
+
+#submitBtn {
+    background-color: #222529;
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 40px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#submitBtn:hover {
+    background-color: #D43F00;
+}
+
+#submitBtn:disabled {
+    background-color: #dcdcdc;
+    cursor: not-allowed;
+}

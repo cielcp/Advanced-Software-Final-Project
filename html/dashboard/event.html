@@ -1,0 +1,91 @@
+{% extends 'account/base.html' %}
+{% load socialaccount %}
+{% load static %}
+{% get_providers as socialaccount_providers %}
+{% block content %}
+
+<div class="back-arrow">
+    <a href="{% url 'all_events' %}">
+        <img src="{% static 'img/back_arrow.png' %}" alt="Back" />
+    </a>
+</div>
+
+<div class="content-block" style="height: 92vh; width: 100vw; display: flex; flex-direction: row; justify-content: center; align-items: center;">
+    <div class="event-view-block">
+        <div class="event-view-title">
+            <h4> {{event.name}} </h4>
+        </div>
+        <div class="event-view-body">
+            <div class="event-view-host-info">
+                <h1 style="font-size: 28px;">
+                    {% if event.host_user == user.username%}
+                        Hosted by: You
+                    {% else %}
+                        Hosted by: {{event.host_user}}
+                    {% endif %}
+                </h1>
+                <h3 style="font-size: 14px;">
+                    {{event.address}}
+                </h3>
+                <p style="margin-top: 30px">
+                    {{event.description}}
+                </p>
+            </div>
+            <div class="event-view-host-info">
+                <!-- Show RSVP Form -->
+                {% if user.is_authenticated and event.host_user != user.username %}
+                <h5 style="font-size: 25px">Attend "{{event.name}}"</h5>
+                        	<p> Let the organizer of this event know you're coming! </p>
+				<form method="POST" style="display: flex; flex-direction: column; align-items: left; width: auto">
+                    {%csrf_token%}
+                    <div class="mb-3">
+                        <label style="display: inline" for="{{ form.name.id_for_label }}" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="{{ form.name.id_for_label }}" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label style="display: inline;" rows="2" for="{{ form.name.id_for_label }}" class="form-label">Leave a note</label>
+                        <textarea maxlength="200" style="resize: none; height: fit-content" name="note" class="form-control"></textarea>
+                    </div>
+                    <input type="submit" class="btn btn-outline-dark rounded-pill px-4" style="width: 140px; height: 50px; align-self: center"/>
+                </form>
+                <!-- Show Attendees -->
+                {% else %}
+                    <h5 style="font-size: 25px"> Attendees </h5>
+                    {% if event.get_rsvps|length <= 0 %}
+                        <span> Nobody has RSVP'd yet! </span>
+                    {% else %}
+                    {% for rsvp in event.get_rsvps %}
+                    <span class="event-view-attendee">
+                         {{rsvp.name}}
+                         <div class="remove-attendee-btn">
+                            <a href="{% url 'delete_rsvp' rsvp.id event.id %}">
+                                <img src="{% static 'img/redx.png' %}"/>
+                            </a>
+                         </div>
+                    </span>
+                    
+                    {% endfor %}
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+        <div class="event-view-footer">
+            <div class="event-view-time">
+                <p> From: {{ event.start_datetime|date:"N j, Y" }} at {{ event.start_datetime|time:"P" }} </p>
+                <p> To: {{ event.end_datetime|date:"N j, Y" }} at {{ event.end_datetime|time:"P" }} </p>
+            </div>
+            <div class="error-message">
+                {% if message is not None %}
+					{%if status%}
+                    <!-- acceptgreen: #304d31 -->
+					<h5 style="color:#304d31"> {{message}} </h5>
+					{% else %}
+                    <!-- errorred: #a84242 -->
+					<h5 style="color:#a84242"> {{message}} </h5>
+					{% endif %}
+				{% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
