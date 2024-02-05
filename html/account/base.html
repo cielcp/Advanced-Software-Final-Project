@@ -28,37 +28,38 @@
     {% endif %}
 
     <!-- Navigation bar block -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="height: 8vh;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}">
                 <img src="{% static 'img/uva_logo.png' %}" alt="UVA Logo" width="30" class="d-inline-block align-text-top">
                 UVA Events
             </a>
-                <ul class="navbar-nav">
+                <ul class="navbar-nav" style="align-items: center;">
                     <li class="nav-item mx-3">
-                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                        <a id="home-link" class="nav-link" href="{% url 'home' %}">Home</a>
                     </li>
                     {% if user.is_authenticated %}
                         {% if user.is_staff %}
                         <li class="nav-item mx-3">
-                            <a class="nav-link" href="{% url 'admin_dash' %}">Admin Dashboard</a>
+                            <a id="admin-link" class="nav-link" href="{% url 'admin_dash' %}">Admin Dashboard</a>
                         </li>
                         <li class="nav-item mx-3">
-                            <a class="nav-link" href="{% url 'create_event' %}">Create Event</a>
+                            <a id="create-link" class="nav-link" href="{% url 'create_event' %}">Create Event</a>
                         </li>
                         {% else %}
                         <li class="nav-item mx-3">
-                            <a class="nav-link" href="{% url 'user_dash' %}">User Dashboard</a>
+                            <a id="user-link" class="nav-link" href="{% url 'user_dash' %}">User Dashboard</a>
                         </li>
                         {% endif %}
                         <li class="nav-item mx-3">
-                            <a class="nav-link" href="{% url 'all_events' %}">All Events</a>
+                            <a id="events-link" class="nav-link" href="{% url 'all_events' %}">All Events</a>
                         </li>
-                        <!-- <li>
-                            <img src="{%static 'img/unknown-user-cavman.png' %}" style="width: 45px; height: 45px;" class="login-prof-img">
-                        </li> -->
                         <li class="nav-item ms-3">
-                            <a class="btn btn-outline-light rounded-pill px-4" href="{% url 'account_logout' %}">Sign Out</a>
+                            <a href="{% url 'account_logout' %}">
+                                <button class="secondary-btn" style="font-family: Titan One;">
+                                    Sign Out
+                                </button>
+                            </a>
                         </li>
                     {% else %}
                     <!-- <li class="nav-item mx-3">

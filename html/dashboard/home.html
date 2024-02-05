@@ -45,52 +45,43 @@
     <div class="home-right">
         <div class="home-content-profile">
         {% if not user.is_authenticated %}
-        <h3> Please login to access UVA events </h3>
-        <h5> Get Started and See What's Happening</h5>
-        <img src="{% static 'img/unknown-user-cavman.png' %}" class="login-prof-img">
-        <h6> <span class="user-class-text">CavMan?</span> Is that you?</h6>
-        <a title="{{provider.name}}" class="btn btn-outline-dark rounded-pill px-4 login-button" style="border:2px solid #121212" href="{% provider_login_url 'google'%}">
-            Login with
-            <img 
-                 src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c51f.png" 
-                 alt="{{ provider.name }}" 
-                 height="20"
-             />
-         </a>
+            <div>
+                <h2> Hey {{user.first_name | default:"Guest"}}! </h2>
+                <p> You are a <span class="user-class-text-admin" >GUEST</span> user</p>
+            </div>
+            <img src="{% static 'img/happy-face.png' %}" class="login-prof-img">
 
          {% else %}
             {% if user.is_staff %}
             <div>
-                <h2> Hey {{user.first_name | default:"Anonymous"}}! </h2>
+                <h2> Hey {{user.first_name | default:"Guest"}}! </h2>
                 <p> You are a <span class="user-class-text-admin" >HOST</span> user</p>
             </div>
-                <a href="{% url 'admin_dash'%}">
-                    <img src="{{ user|get_picture }}" class="login-prof-img">
-                </a>
+            <a href="{% url 'admin_dash'%}">
+                <img src="{{ user|get_picture }}" class="login-prof-img">
+            </a>
             {% else %}
-                <h4> Hey {{user.first_name | default:"CavMan"}}! </h4>
+                <h4> Hey {{user.first_name | default:"Guest"}}! </h4>
                 <a href="{% url 'user_dash'%}">
                     <img src="{{ user|get_picture }}" class="login-prof-img">
                 </a>
                 <p> You are a <span class="user-class-text-user" >USER</span> </p>
-                <a class="signout-small" href="{% url 'account_logout' %}">Sign Out</a>
             {% endif %}
          {% endif %}
     </div>
 
     <div class="home-content-action">
         {% if not user.is_authenticated %}
-        <h3> Please login to access UVA events </h3>
-        <h5> Get Started and See What's Happening</h5>
-        <img src="{% static 'img/unknown-user-cavman.png' %}" class="login-prof-img">
-        <h6> <span class="user-class-text">CavMan?</span> Is that you?</h6>
-        <a title="{{provider.name}}" class="btn btn-outline-dark rounded-pill px-4 login-button" style="border:2px solid #121212" href="{% provider_login_url 'google'%}">
-            Login with
-            <img 
+        <h3> Please login </h3>
+        <a title="{{provider.name}}" href="{% provider_login_url 'google'%}">
+            <button class="primary-btn">
+                Login with
+                <img 
                  src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c51f.png" 
                  alt="{{ provider.name }}" 
                  height="20"
-             />
+                />
+            </button>
          </a>
          {% else %}
             {% if user.is_staff %}
