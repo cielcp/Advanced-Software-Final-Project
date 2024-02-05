@@ -8,12 +8,6 @@
     padding: 0 20px;
 }
 
-h2 {
-    font-size: 24px;
-    margin-bottom: 40px;
-    color: #232D4B;
-}
-
 .options {
     display: flex;
     justify-content: space-between;
@@ -219,17 +213,20 @@ h2 {
     height: 93vh;
 }
 
-/* 
-    Home Page
-    author: Elliott Hansen
-*/
+/* OVERALL */
 
 .content-block {
-    background-color: #121212 !important;
+    background-color: #F9F5EC;
     overflow-y: hidden;
     display: flex;
     flex-direction: row;
+    padding: 60px;
+    gap: 40px;
+    justify-content: center;
+    font-family: Titan One;
 }
+
+/* HOME PAGE */
 
 @keyframes title-drop-in {
     0% {
@@ -244,42 +241,34 @@ h2 {
 }
 
 .landing-page-content-main {
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 15px 15px 0px 0px #222529;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #222529;
+    
     transform: translateY(200%);
-    animation: title-drop-in 0.8s 0.5s ease-in-out forwards normal;
-    border-top-right-radius: 15px;
-    border-bottom-left-radius: 15px;
-    background-color: #eb6f28;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 120px;
-    margin-top: 80px;
+    animation: title-drop-in 0.7s 0.5s ease-in-out forwards normal;
+    background-color: #F87D48;
     width: 650px;
-    height: 380px;
-    box-shadow: 8px 8px 0px 1px #91370d;
-    position: relative;
+    height: 440px;
 }
 
-.landing-page-content-getstarted * {
-    font-family: Titan One;
-}
-
-.landing-page-content-main .row {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-}
-
-.row > span {
-    font-family: Titan One;
-    font-size: 85px;
-    color: white;
+.landing-page-content-main > h1 {
+    font-size: 80px;
     text-align: center;
+    margin-bottom: 20px;
 }
 
-.subtitle > span {
+.row > h3 {
     font-size: 25px;
-    color: white;
+    width: 400px;
+}
+
+.row > img {
+    height: 140px;
+    width: auto;
 }
 
 @keyframes fadein {
@@ -293,6 +282,29 @@ h2 {
     }
 
 }
+
+.landing-page-content-profile {
+    display: flex;
+    flex-direction: row;
+    transform: translateY(200%);
+    animation: title-drop-in 0.7s 0.8s ease-in-out forwards normal;
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 15px 15px 0px 0px #222529;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #222529;
+    background-color: #89B5FE;
+    gap: 10px;
+}
+
+.landing-page-content-profile > h3 {
+    font-size: 25px;
+}
+
+
+
+
 .landing-page-content-getstarted {
     opacity: 0%;
     animation: fadein 0.8s 1.7s ease-out forwards normal;
