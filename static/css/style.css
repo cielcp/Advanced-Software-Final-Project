@@ -1,3 +1,4 @@
+
 .container {
     display: flex;
     flex-direction: column;
@@ -113,7 +114,6 @@
 */
 
 .main-container {
-    width: 100%;
     display: flex;
     flex-direction: row;
     height: 93vh;
@@ -121,7 +121,6 @@
 }
 
 .events-container {
-    flex: 1;
     height: auto;
     position: relative;
     display: flex;
@@ -142,7 +141,7 @@
     background-color: #414345;
 }
 
-.events-container > .event-box {
+.events-container > .whatisthis-event-box {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -165,10 +164,6 @@
     top: 30px;
     color: #dcdcdc;
     font-size: 45px;
-}
-
-.event-box:hover {
-    scale: 102%;
 }
 
 .event-title {
@@ -196,16 +191,9 @@
     text-overflow: ellipsis;
     color: white;
 }
+
 .event-info * {
     display: block;
-}
-.event-box .event-view-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    height: 50%;
-    margin-left: auto;
 }
 
 #map {
@@ -215,6 +203,11 @@
 
 /* OVERALL */
 
+
+/* 
+    Homepage
+    Author: Ciel Park
+*/
 .content-block {
     background-color: #F9F5EC;
     overflow-y: hidden;
@@ -225,8 +218,6 @@
     justify-content: center;
     font-family: Titan One;
 }
-
-/* HOME PAGE */
 
 @keyframes title-drop-in {
     0% {
@@ -240,7 +231,7 @@
     }
 }
 
-.landing-page-content-main {
+.home-content-main {
     border-radius: 30px;
     padding: 40px;
     box-shadow: 15px 15px 0px 0px #222529;
@@ -255,9 +246,8 @@
     height: 440px;
 }
 
-.landing-page-content-main > h1 {
+.home-content-main > h1 {
     font-size: 80px;
-    text-align: center;
     margin-bottom: 20px;
 }
 
@@ -271,22 +261,20 @@
     width: auto;
 }
 
-@keyframes fadein {
+@keyframes fadeInAnimation {
     0% {
-        opacity: 0%;
-        filter: blur(8px)
+        opacity: 0;
     }
     100% {
-        opacity: 100%;
-        filter: blur(0px);
+        opacity: 1;
     }
-
 }
 
-.landing-page-content-profile {
+.home-content-profile {
     display: flex;
     flex-direction: row;
-    transform: translateY(200%);
+    width:auto;
+    transform: translateY(300%);
     animation: title-drop-in 0.7s 0.8s ease-in-out forwards normal;
     border-radius: 30px;
     padding: 40px;
@@ -298,59 +286,57 @@
     gap: 10px;
 }
 
-.landing-page-content-profile > h3 {
+.home-content-profile > h3 {
     font-size: 25px;
 }
 
-
-
-
-.landing-page-content-getstarted {
-    opacity: 0%;
-    animation: fadein 0.8s 1.7s ease-out forwards normal;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #e9d0c6;
-    box-shadow: 8px 8px 0px 1px #1f1f1f;
-    border-radius: 15px;
-    height: 550px;
-    width: 450px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 90px;
-    gap: 15px;
+.home-content-action {
+    margin-top: 30px;
+    transform: translateY(200%);
+    animation: title-drop-in 0.7s 0.9s ease-in-out forwards normal;
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 15px 15px 0px 0px #222529;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #222529;
+    background-color: #ffffff;
 }
 
-.landing-page-content-getstarted > h4 {
-    width: 80%;
-    margin-top: 25px;
-    text-align: left;
-    font-family: Titan One;
-    font-size: 35px;
-    color: #121212;
+.primary-btn {
+    border-radius: 30px;
+    padding: 10px;
+    margin-top: 20px;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #222529;
+    background-color: #F87D48;
+    color: #222529;    
+    transition: 0.3s;
 }
 
-.landing-page-content-getstarted h5 {
-    text-align: left;
-    width: 80%;
-    font-family: Titan One;
-    font-size: 25px;
-    color: #121212;
+.primary-btn:hover {
+    scale: 105%;
+}
+
+.primary-btn-view {
+    border-radius: 30px;
+    padding: 10px;
+    margin-top: 20px;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #222529;
+    background-color: #F87D48;
+    color: #222529;    
+    transition: 0.3s;
+    padding-left: 30px; 
+    padding-right: 30px;
 }
 
 .login-prof-img {
     border-radius: 50%;
-    height: 180px;
-    width: 180px;
-    border: 3px solid #121212;
-    transition: 0.3s;
-}
-
-.login-prof-img-lg {
-    border-radius: 50%;
-    height: 250px;
-    width: 250px;
+    height: 120px;
+    width: 120px;
     border: 3px solid #121212;
     transition: 0.3s;
 }
@@ -359,15 +345,7 @@
     scale: 105%;
 }
 
-.login-button {
-    margin-top: 15px;
-    scale: 150%;
-}
 
-.signout-small {
-    margin-top: 25px;
-    color:#121212
-}
 
 /* 
     Signout page
@@ -391,54 +369,27 @@
     color: white;
 }
 
-.user-class-text-admin {
-    color: #508066;
-}
 
-.user-class-text-user {
-    color: #a16569;
-}
 
 /* 
     Admin Dashboard & User Dashboard
-    Author: Elliott Hansen
+    Author: Ciel Park
 */
-
-@keyframes profileappear {
-    0% {
-        transform: translateX(-200%);
-    }
-
-    100% {
-        transform: translateX(0%);
-    }
-}
-
-.user-profile {
-    transform: translateX(-200%);
-    animation: profileappear 0.8s 0.3s ease-out forwards normal;
+.content-block-dash {
+    background-color: #F9F5EC;
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    border-top-right-radius: 25px;
-    border-bottom-left-radius: 25px;
-    width: 500px;
-    height: 85vh;
-    margin-left: 80px;
+    padding: 100px;
+    gap: 20px;
+    font-family: Titan One;
 }
 
-.user-profile h2 {
-    margin-top: 35px;
-    font-family: Titan One;
-    font-size: 55px;
-    color: white;
-}
-
-.user-profile h3 {
-    margin-top: 5px;
-    font-family: Titan One;
-    font-size: 25px;
-    color: white;
+.content-block-dash > h2 {
+    opacity: 0;
+    margin-top: 40px;
+    text-align: center;
+    animation: fadeInAnimation 0.4s 0.8s ease-in-out forwards normal;
 }
 
 .user-events {
@@ -455,16 +406,6 @@
     overflow: hidden;
 }
 
-.admin {
-    box-shadow: 8px 8px 0px 1px #73ba93;
-    background-color: #508066;
-}
-
-.user {
-    box-shadow: 8px 8px 0px 1px #805053;
-    background-color: #a16569;
-}
-
 @keyframes hideevents {
     0% {
         opacity: 0%;
@@ -474,77 +415,36 @@
     }
 }
 
-.overlay {
-    opacity: 0%;
-    animation: hideevents 0.8s 0.2s ease-out forwards normal;
-    position:absolute;
-    width: 105%;
-    height: 105%;
-    backdrop-filter: blur(8px);
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-}
-.overlay h2, .overlay a {
+.dash-content h2, .user-events h2 {
     font-family: Titan One;
     font-size: 25px;
-    color: white;
-}
-.overlay a {
-    font-size: 25px;
 }
 
-.admin-events {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 500px;
-    height: auto;
-    width: 45vw;
-    margin-left: auto;
-    margin-right: auto;
-    gap: 35px;
-    overflow-y: scroll;
-}
+.event-box {
+    transform: translateY(600%);
+    animation: title-drop-in 0.7s 0.7s ease-in-out forwards normal;
 
-.admin-events h2, .user-events h2 {
-    font-family: Titan One;
-    font-size: 25px;
-    color: white;
-}
+    border-radius: 30px;
+    color: #222529;
+    margin-top: 20px;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #222529;
+    box-shadow: 15px 15px 0px 0px #222529;
 
-.admin-events .admin-event-box {
-    width: 100%;
-    height: 140px;
-    background-color: #414345;
-    border-radius: 16px;
+    background-color: white;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    padding: 16px;
+    padding: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
+    align-content: center;
+    justify-content: space-between;
 }
 
-.admin-event-box .event-title, .admin-event-box span {
-    font-family: Titan One;
-    color: #121212;
-}
 
-.admin-event-box .event-view-button, .user-event-box .event-view-button {
-    height: 50px;
-    width: 130px;
-    border-radius: 24px;
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    font-family: Titan One;
-    font-size: 24px;
-    border: 3px solid #414345;
-}
+
+
 
 .user-event-col {
     width: 100%;

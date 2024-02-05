@@ -37,34 +37,23 @@
         </div>
     </div>
 </div> -->
-<div class="content-block" style="height: 92vh; width: 100vw; padding-top: 4vh">
-    <div class="user-profile admin">
-        <h2>
-            Profile
-        </h2>
-        <img src="{{ user|get_picture }}" class="login-prof-img-lg">
-        <h3>{{user.first_name | default:"CavMan" }}</h3>
-    </div>
-    <div class="admin-events">
-        <h2> Events You're Hosting: </h2>
+<div class="content-block-dash" style="height: 92vh; padding-top: 4vh">
+        <h2> Events you're hosting </h2>
         {% if not event_list %}
-            <div class="overlay">
                 <h2> You don't have any Events!</h2>
                 <a href="{% url 'create_event' %}"> Create One? </a>
-            </div>
-            <div class="user-event-box"></div>
-            <div class="user-event-box"></div>
-            <div class="user-event-box"></div>
         {% else %}
             {% for i in '012'|make_list %}
                 {% if event_list|index:i %}
                     {% with event=event_list|index:i %}
-                    <div class="user-event-box">
-                        <div class="event-info">
-                            <h2 class="event-title"> {{event.name}} </h2>
-                            <span> {{event.address}} </span>
+                    <div class="event-box">
+                        <div >
+                            <h2> {{event.name}} </h2>
+                            <span style="text-overflow: ellipsis;"> {{event.address}} </span>
                         </div>
-                        <a class="event-view-button btn btn-outline-dark rounded-pill px-4" href = "{% url 'event' event.id %}">View</a>
+                        <a href = "{% url 'event' event.id %}">
+                            <button class="primary-btn-view">View</button>
+                        </a>
                     </div>
                     {% endwith %}
                 {% endif %}
@@ -72,18 +61,19 @@
         {% endif %}
         
         {% if rsvpd_list %}
-            <h2> Events You're Attending: </h2>
+            <h2> Your saved events </h2>
             {% for event in rsvpd_list %}
-            <div class="user-event-box">
-                <div class="event-info">
-                    <h2 class="event-title"> {{event.name}} </h2>
+            <div class="event-box">
+                <div>
+                    <h2> {{event.name}} </h2>
                     <span> {{event.address}} </span>
                 </div>
-                <a class="event-view-button btn btn-outline-dark rounded-pill px-4" href = "{% url 'event' event.id %}">View</a>
+                <a href = "{% url 'event' event.id %}">
+                    <button class="primary-btn-view">View</button>
+                </a>
             </div>
             {% endfor %}
         {% endif %}
 
-    </div>
 </div>
 {% endblock %}

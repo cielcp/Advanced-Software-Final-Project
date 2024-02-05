@@ -29,8 +29,8 @@
         </div>
     </div>
 </div> -->
-<div class="content-block" style="height: 92vh">
-    <div class="landing-page-content-main">
+<div class="content-block" style="">
+    <div class="home-content-main">
         <h1>
             Welcome to<br>UVA Events
         </h1>
@@ -42,8 +42,8 @@
         </div>
     </div>
 
-    <div>
-        <div class="landing-page-content-profile">
+    <div class="home-right">
+        <div class="home-content-profile">
         {% if not user.is_authenticated %}
         <h3> Please login to access UVA events </h3>
         <h5> Get Started and See What's Happening</h5>
@@ -62,7 +62,7 @@
             {% if user.is_staff %}
             <div>
                 <h3> Hey {{user.first_name | default:"Anonymous"}}! </h3>
-                <h6> You are a <span class="user-class-text-admin" >HOST</span> user</h6>
+                <p> You are a <span class="user-class-text-admin" >HOST</span> user</p>
             </div>
                 <a href="{% url 'admin_dash'%}">
                     <img src="{{ user|get_picture }}" class="login-prof-img">
@@ -72,13 +72,13 @@
                 <a href="{% url 'user_dash'%}">
                     <img src="{{ user|get_picture }}" class="login-prof-img">
                 </a>
-                <h6> You are a <span class="user-class-text-user" >USER</span> </h6>
+                <p> You are a <span class="user-class-text-user" >USER</span> </p>
                 <a class="signout-small" href="{% url 'account_logout' %}">Sign Out</a>
             {% endif %}
          {% endif %}
     </div>
 
-    <div class="landing-page-content-action">
+    <div class="home-content-action">
         {% if not user.is_authenticated %}
         <h3> Please login to access UVA events </h3>
         <h5> Get Started and See What's Happening</h5>
@@ -94,23 +94,18 @@
          </a>
          {% else %}
             {% if user.is_staff %}
-                <h3> Hey {{user.first_name | default:"Anonymous User"}}! </h3>
-                <h5> Let's Plan Something For Tonight.</h5>
-                <a href="{% url 'admin_dash'%}">
-                    <img src="{{ user|get_picture }}" class="login-prof-img">
-                </a>
-                <h6> You are a <span class="user-class-text-admin" >HOST</span> </h6>
-                <a class="btn btn-outline-dark rounded-pill px-4 login-button" style="border:2px solid #121212" href="{% url 'create_event' %}">
-                    Create an Event!
-                </a>
-                <a class="signout-small" href="{% url 'account_logout' %}">Sign Out</a>
+                <h3> Planning to host?</h3>
+                <a href="{% url 'create_event' %}">
+                    <button class="primary-btn"> Create an Event!</button>
+                    </a>
+                
             {% else %}
                 <h4> Hey {{user.first_name | default:"CavMan"}}! </h4>
                 <h5> Let's Go Out Tonight.</h5>
                 <a href="{% url 'user_dash'%}">
                     <img src="{{ user|get_picture }}" class="login-prof-img">
                 </a>
-                <h6> You are a <span class="user-class-text-user" >USER</span> </h6>
+                <p> You are a <span class="user-class-text-user" >USER</span> </p>
                 <a class="btn btn-outline-dark rounded-pill px-4 login-button" style="border:2px solid #121212" href="{% url 'all_events' %}">
                     Find an Event!
                 </a>
