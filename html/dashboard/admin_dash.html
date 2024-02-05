@@ -40,7 +40,7 @@
 <div class="content-block-dash" style="height: 92vh; padding-top: 4vh">
         <h2> Events you're hosting </h2>
         {% if not event_list %}
-                <h2> You don't have any Events!</h2>
+                <h3> You don't have any Events!</h3>
                 <a href="{% url 'create_event' %}"> Create One? </a>
         {% else %}
             {% for i in '012'|make_list %}
@@ -48,7 +48,7 @@
                     {% with event=event_list|index:i %}
                     <div class="event-box">
                         <div >
-                            <h2> {{event.name}} </h2>
+                            <h3> {{event.name}} </h3>
                             <span style="text-overflow: ellipsis;"> {{event.address}} </span>
                         </div>
                         <a href = "{% url 'event' event.id %}">
@@ -65,7 +65,7 @@
             {% for event in rsvpd_list %}
             <div class="event-box">
                 <div>
-                    <h2> {{event.name}} </h2>
+                    <h3> {{event.name}} </h3>
                     <span> {{event.address}} </span>
                 </div>
                 <a href = "{% url 'event' event.id %}">

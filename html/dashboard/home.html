@@ -61,7 +61,7 @@
          {% else %}
             {% if user.is_staff %}
             <div>
-                <h3> Hey {{user.first_name | default:"Anonymous"}}! </h3>
+                <h2> Hey {{user.first_name | default:"Anonymous"}}! </h2>
                 <p> You are a <span class="user-class-text-admin" >HOST</span> user</p>
             </div>
                 <a href="{% url 'admin_dash'%}">
@@ -94,7 +94,7 @@
          </a>
          {% else %}
             {% if user.is_staff %}
-                <h3> Planning to host?</h3>
+                <h2> Planning to host?</h2>
                 <a href="{% url 'create_event' %}">
                     <button class="primary-btn"> Create an event</button>
                 </a>
