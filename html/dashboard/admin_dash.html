@@ -52,7 +52,7 @@
                             <span style="text-overflow: ellipsis;"> {{event.address}} </span>
                         </div>
                         <a href = "{% url 'event' event.id %}">
-                            <button class="primary-btn-view">View</button>
+                            <button class="primary-btn">View</button>
                         </a>
                     </div>
                     {% endwith %}
@@ -61,7 +61,7 @@
         {% endif %}
         
         {% if rsvpd_list %}
-            <h2> Your saved events </h2>
+            <h2 style="margin-top:40px;"> Your saved events </h2>
             {% for event in rsvpd_list %}
             <div class="event-box">
                 <div>
@@ -69,7 +69,7 @@
                     <span> {{event.address}} </span>
                 </div>
                 <a href = "{% url 'event' event.id %}">
-                    <button class="primary-btn-view">View</button>
+                    <button class="primary-btn">View</button>
                 </a>
             </div>
             {% endfor %}

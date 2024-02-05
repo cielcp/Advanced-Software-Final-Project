@@ -313,24 +313,12 @@
     background-color: #F87D48;
     color: #222529;    
     transition: 0.3s;
+    padding-left: 30px; 
+    padding-right: 30px;
 }
 
 .primary-btn:hover {
     scale: 105%;
-}
-
-.primary-btn-view {
-    border-radius: 30px;
-    padding: 10px;
-    margin-top: 20px;
-    border-style: solid;
-    border-width: 4px;
-    border-color: #222529;
-    background-color: #F87D48;
-    color: #222529;    
-    transition: 0.3s;
-    padding-left: 30px; 
-    padding-right: 30px;
 }
 
 .login-prof-img {
@@ -380,14 +368,14 @@
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
-    padding: 100px;
+    padding: 60px;
     gap: 20px;
     font-family: Titan One;
 }
 
 .content-block-dash > h2 {
     opacity: 0;
-    margin-top: 40px;
+    margin-top: 20px;
     text-align: center;
     animation: fadeInAnimation 0.4s 0.8s ease-in-out forwards normal;
 }
@@ -402,7 +390,7 @@
     width: 45vw;
     margin-left: auto;
     margin-right: auto;
-    gap: 35px;
+    gap: 20px;
     overflow: hidden;
 }
 
@@ -443,110 +431,42 @@
 }
 
 
-
-
-
-.user-event-col {
-    width: 100%;
-    min-height: 80px;
-    height: auto;
-    overflow-y: auto;
-}
-
-.user-event-box {
-    align-items: center;
-    padding: 24px;
-    width: 100%;
-    margin-bottom: 25px;
-    border: 3px solid #414345;
-    min-height: 120px;
-    border-radius: 48px;
-    font-family: Titan One;
-    display: flex;
-    flex-direction: row;
-}
-
-.active {
-    background-color: #cab7af !important;
-    transition: 0.3s;
-}
-
-.active:hover {
-    scale: 102%;
-}
-
 /* 
-    Event View
-    Author: Elliott Hansen
+    Form (create event n RSVP) View
+    Author: Ciel Park
 */
-
-.event-view-block {
-    /* transform: translateY(200%); */
-    /* animation: title-drop-in 0.8s 0.5s ease-in-out normal forwards; */
-    width: 1000px;
-    height: 600px;
-    border-top-right-radius: 36px;
-    border-bottom-left-radius: 36px;
-    background-color: #cab7af;
-    box-shadow: 8px 8px 0px 1px #1f1f1f;
-    padding-left: 24px;
-    padding-right: 24px;
-
-    display: flex;
-    flex-direction: column;
-}
-
-.event-view-title {
-    border-bottom: 4px solid #a2948d;
-    height: 100px;
-    width: 100%;
-    text-align: left;
-    padding-top: 10px;
-    display: flex;
+.content-block-form {
+    background-color: #F9F5EC;
+    overflow-y: scroll;
+    padding: 60px;
+    font-family: Titan One;
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center; 
     align-items: center;
 }
 
-.event-view-title h4 {
-    width: 100%;
-    font-size: 42px;
-    font-family: Titan One;
-    color: #121212;
+.form-block {
+    transform: translateY(200%);
+    animation: title-drop-in 0.8s 0.9s ease-in-out normal forwards;
+    width: 90%;
+    border-radius: 30px;
+    background-color: white;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #222529;
+    box-shadow: 15px 15px 0px 0px #222529;
+    padding:40px;
 }
 
-.event-view-body {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: auto;
-    gap: 25px;
-}
-
-.event-view-host-info {
-    margin-top: 10px;
+.form-info {
+    margin-top: 20px;
+    gap:20px;
     width: 50%;
-    height: 350px;
 }
 
-.event-view-host-info * {
-    font-family: Titan One;
-    color: #2f2f2f;
-}
 
-.event-view-footer {
-    border-top: 4px solid #a2948d;
-    height: 100px;
-    width: 100%;
-    margin-top: auto;
-    text-align: left;
-    padding-top: 10px;
-    display: flex;
-    flex-direction: row;
-}
 
-.event-view-footer * {
-    font-family: Titan One;
-    color: #2f2f2f;
-}
 
 .error-message {
     margin-left: auto;
