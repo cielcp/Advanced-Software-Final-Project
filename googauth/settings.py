@@ -92,8 +92,8 @@ SOCIALACCOUNT_PROVIDERS = {
         'AUTH_PARAMS': {'access_type': 'online',},
         'METHOD': 'oauth2',
         'VERIFIED_EMAIL': False,
-        'CLIENT_ID': '64737326178-0ucim3b85no6u3e42qn16ibdtnhh2nlb.apps.googleusercontent.com',
-        'SECRET': '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',
+        'CLIENT_ID': '987882263685-b4njuq4duhdar79e5l6cr8sdigvhp9uq.apps.googleusercontent.com',
+        'SECRET': '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',
     }
 }
 
