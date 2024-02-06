@@ -155,7 +155,7 @@
     overflow-y: hidden;
     display: flex;
     flex-direction: row;
-    padding: 60px;
+    padding: 50px;
     gap: 40px;
     justify-content: center;
     font-family: Titan One;
@@ -271,10 +271,9 @@
 */
 .content-block-dash {
     background-color: #F9F5EC;
-    overflow-y: scroll;
     display: flex;
     flex-direction: column;
-    padding: 60px;
+    padding: 50px;
     gap: 20px;
     font-family: Titan One;
 }
@@ -297,7 +296,6 @@
     margin-left: auto;
     margin-right: auto;
     gap: 20px;
-    overflow: hidden;
 }
 
 @keyframes hideevents {
@@ -343,8 +341,8 @@
 */
 .content-block-form {
     background-color: #F9F5EC;
-    overflow-y: scroll;
-    padding: 60px;
+    overflow-y: hidden;
+    padding: 50px;
     font-family: Titan One;
     display: flex; 
     flex-direction: row; 
@@ -366,7 +364,7 @@
 }
 
 .form-info {
-    margin-top: 20px;
+    margin-top: 10px;
     gap:20px;
     width: 50%;
 }
@@ -415,13 +413,13 @@
 .main-container {
     display: flex;
     flex-direction: row;
-    height: 93vh;
+    height: 86vh;
     overflow: hidden;
 }
 
 .content-block-events {
     background-color: #F9F5EC;
-    padding: 60px;
+    padding: 50px;
     gap: 40px;
     font-family: Titan One;
 

@@ -36,7 +36,7 @@
             </a>
                 <ul class="navbar-nav" style="align-items: center;">
                     <li class="nav-item mx-3">
-                        <a id="home-link" class="nav-link" href="{% url 'home' %}">Home</a>
+                        <a id="home-link" class="nav-link active" href="{% url 'home' %}">Home</a>
                     </li>
                     {% if user.is_authenticated %}
                         {% if user.is_staff %}
