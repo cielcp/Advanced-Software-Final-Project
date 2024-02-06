@@ -2,6 +2,16 @@
 {% load static %}
 {% block content %}
 
+<script>
+        var pricing = document.getElementById("events-link");
+        pricing.classList.add('active');                  //2.
+        pricing.setAttribute("aria-current", "page");     //4.
+        
+        var home = document.getElementById("home-link");
+        home.classList.remove('active');                  //3.
+        home.setAttribute("aria-current","none");         //4.
+</script>
+
     <!-- Actual page content -->
     <div class="main-container">
         <div class="content-block-events">

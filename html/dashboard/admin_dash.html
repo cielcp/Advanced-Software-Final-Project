@@ -37,6 +37,16 @@
         </div>
     </div>
 </div> -->
+<script>
+        var pricing = document.getElementById("admin-link");
+        pricing.classList.add('active');                  //2.
+        pricing.setAttribute("aria-current", "page");     //4.
+        
+        var home = document.getElementById("home-link");
+        home.classList.remove('active');                  //3.
+        home.setAttribute("aria-current","none");         //4.
+</script>
+
 <div class="content-block-dash">
         <h2> Events you're hosting </h2>
         {% if not event_list %}

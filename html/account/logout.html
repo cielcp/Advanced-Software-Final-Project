@@ -5,7 +5,7 @@
 {% block head_title %}{% trans "UVA Events - Sign Out" %}{% endblock %}
 
 {% block content %}
-<div class="content-block" style="height: 92vh; width: 100vw">
+<div class="content-block">
     <div class="home-content-profile" style="background-color: white; height: 200px; display: flex; flex-direction: column; align-items: center;">
         <h2> Goodbye, {{user.first_name|default:"Anonymous"}}</h2>
         <form method="post" action="{% url 'account_logout' %}">

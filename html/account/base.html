@@ -15,14 +15,14 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
-<body>
+<body style="background-color: #F9F5EC; height: 100%;">
     {% block body %}
 
     <!-- Alert block -->
     {% if messages %}
-    <div class="alert alert-primary" role="alert">
+    <div class="alert alert-primary" role="alert" style="margin:0">
         {% for message in messages %}
-        <div class="text-center border-bottom">{{message}}</div>
+        <div class="text-center">{{message}}</div>
         {% endfor %}
     </div>
     {% endif %}
@@ -31,57 +31,49 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}">
-                <img src="{% static 'img/uva_logo.png' %}" alt="UVA Logo" width="30" class="d-inline-block align-text-top">
+                <img src="{% static 'img/uva_logo.png' %}" alt="UVA Logo" width="30"
+                    class="d-inline-block align-text-top">
                 UVA Events
             </a>
-                <ul class="navbar-nav" style="align-items: center;">
-                    <li class="nav-item mx-3">
-                        <a id="home-link" class="nav-link active" href="{% url 'home' %}">Home</a>
-                    </li>
-                    {% if user.is_authenticated %}
-                        {% if user.is_staff %}
-                        <li class="nav-item mx-3">
-                            <a id="admin-link" class="nav-link" href="{% url 'admin_dash' %}">Admin Dashboard</a>
-                        </li>
-                        <li class="nav-item mx-3">
-                            <a id="create-link" class="nav-link" href="{% url 'create_event' %}">Create Event</a>
-                        </li>
-                        {% else %}
-                        <li class="nav-item mx-3">
-                            <a id="user-link" class="nav-link" href="{% url 'user_dash' %}">User Dashboard</a>
-                        </li>
-                        {% endif %}
-                        <li class="nav-item mx-3">
-                            <a id="events-link" class="nav-link" href="{% url 'all_events' %}">All Events</a>
-                        </li>
-                        <li class="nav-item ms-3">
-                            <a href="{% url 'account_logout' %}">
-                                <button class="secondary-btn" style="font-family: Titan One;">
-                                    Sign Out
-                                </button>
-                            </a>
-                        </li>
-                    {% else %}
-                    <!-- <li class="nav-item mx-3">
-                        <a class="nav-link" href="{% url 'account_login' %}">Sign In</a>
-                    </li>
-                    <li class="nav-item ms-3">
-                        <a class="nav-link" href="{% url 'account_signup' %}">Sign Up</a>
-                    </li> -->
-                    <li class="nav-item ms-3">
-                        {% for provider in socialaccount_providers %}
-                        <a title="{{provider.name}}" class="btn btn-outline-light rounded-pill px-4" href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params action='reauthenticate' %}">
-                           Login with
-                           <img 
-                                src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c51f.png" 
-                                alt="{{ provider.name }}" 
-                                height="20"
-                            />
-                        </a>
-                        {% endfor %}
-                    </li>
-                    {% endif %}
-                </ul>
+            <ul class="navbar-nav" style="align-items: center;">
+                <li class="nav-item mx-3">
+                    <a id="home-link" class="nav-link active" href="{% url 'home' %}">Home</a>
+                </li>
+                {% if user.is_authenticated %}
+                {% if user.is_staff %}
+                <li class="nav-item mx-3">
+                    <a id="admin-link" class="nav-link" href="{% url 'admin_dash' %}">Admin Dashboard</a>
+                </li>
+                <li class="nav-item mx-3">
+                    <a id="create-link" class="nav-link" href="{% url 'create_event' %}">Create Event</a>
+                </li>
+                {% else %}
+                <li class="nav-item mx-3">
+                    <a id="user-link" class="nav-link" href="{% url 'user_dash' %}">User Dashboard</a>
+                </li>
+                {% endif %}
+                <li class="nav-item mx-3">
+                    <a id="events-link" class="nav-link" href="{% url 'all_events' %}">All Events</a>
+                </li>
+                <li class="nav-item ms-3">
+                    <a href="{% url 'account_logout' %}">
+                        <button class="secondary-btn" style="font-family: Titan One;">
+                            Sign Out
+                        </button>
+                    </a>
+                </li>
+                {% else %}
+                <li class="nav-item ms-3">
+                    <a title="{{provider.name}}" href="{% provider_login_url 'google'%}">
+                        <button class="secondary-btn">
+                            Login with
+                            <img src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c51f.png"
+                                alt="{{ provider.name }}" height="20" style="padding-left: 3px;" />
+                        </button>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
         </div>
     </nav>
 

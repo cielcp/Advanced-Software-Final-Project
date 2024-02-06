@@ -5,7 +5,6 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #F9F5EC;
     padding: 0 20px;
 }
 
@@ -100,7 +99,6 @@
     z-index: 1000;
     padding: 8px;
     border-radius: 50px;
-    background-color: #e9d0c6;
 }
 
 .back-arrow img {
@@ -129,6 +127,7 @@
 }
 
 .secondary-btn {
+    font-family: Titan One;
     border-radius: 30px;
     padding: 10px;
     margin: 10px;
@@ -151,7 +150,6 @@
     Author: Ciel Park
 */
 .content-block {
-    background-color: #F9F5EC;
     overflow-y: hidden;
     display: flex;
     flex-direction: row;
@@ -270,7 +268,6 @@
     Author: Ciel Park
 */
 .content-block-dash {
-    background-color: #F9F5EC;
     display: flex;
     flex-direction: column;
     padding: 50px;
@@ -340,12 +337,11 @@
     Author: Ciel Park
 */
 .content-block-form {
-    background-color: #F9F5EC;
     overflow-y: hidden;
     padding: 50px;
     font-family: Titan One;
     display: flex; 
-    flex-direction: row; 
+    flex-grow: 1;
     justify-content: center; 
     align-items: center;
 }
@@ -418,7 +414,6 @@
 }
 
 .content-block-events {
-    background-color: #F9F5EC;
     padding: 50px;
     gap: 40px;
     font-family: Titan One;
