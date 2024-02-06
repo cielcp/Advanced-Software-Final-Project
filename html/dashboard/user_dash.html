@@ -47,11 +47,13 @@
         home.setAttribute("aria-current","none");         //4.
 </script>
 
-<div class="content-block-dash">
+<div class="content-block-dash" style="overflow: hidden;">
         {% if not event_list %}
-        <div class="overlay">
+        <div class="home-content-profile" style="background-color: white; display: flex; flex-direction: column; align-items: center;">
             <h2> You're not attending any events!</h2>
-            <a href="{% url 'all_events' %}"> Find One? </a>
+            <a href="{% url 'all_events' %}">
+                    <button class="primary-btn"> View all events</button>
+                </a>
         </div>
         {% else %}
             <h2> Your saved events </h2>

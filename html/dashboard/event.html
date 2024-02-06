@@ -3,6 +3,11 @@
 
 
 {% block content %}
+<script>
+        var home = document.getElementById("home-link");
+        home.classList.remove('active');                  //3.
+        home.setAttribute("aria-current","none");         //4.
+</script>
 <div class="content-block-form">
     <div class="form-block">
         <h2 style="text-align: center;"> {{event.name}} </h2>
@@ -30,7 +35,7 @@
             <div class="form-info">
                 <!-- Show RSVP Form -->
                 {% if user.is_authenticated and event.host_user != user.username %}
-                <h3>Attend "{{event.name}}"</h3>
+                <h3>Attend {{event.name}}</h3>
                         	<p> Let the organizer of this event know you're coming! </p>
 				<form method="POST" style="display: flex; flex-direction: column; align-items: left; width: auto">
                     {%csrf_token%}
@@ -66,15 +71,6 @@
             </div>
             </div>
         </div>
-                {% if message is not None %}
-					{%if status%}
-                    <!-- acceptgreen: #304d31 -->
-					<h5 style="color:#304d31"> {{message}} </h5>
-					{% else %}
-                    <!-- errorred: #a84242 -->
-					<h5 style="color:#a84242"> {{message}} </h5>
-					{% endif %}
-				{% endif %}
     </div>
 </div>
 {% endblock %}

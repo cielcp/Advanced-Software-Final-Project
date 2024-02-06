@@ -221,6 +221,7 @@
     flex-direction: row;
     width:auto;
     justify-content: space-between;
+    align-items: center;
     transform: translateY(300%);
     animation: title-drop-in 0.7s 0.8s ease-in-out forwards normal;
     border-radius: 30px;

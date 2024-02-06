@@ -47,15 +47,14 @@
         <div class="home-content-profile">
         {% if not user.is_authenticated %}
             <div>
-                <h2> Hey {{user.first_name | default:"Guest"}}! </h2>
-                <p> You are a <span class="user-class-text-admin" >GUEST</span> user</p>
+                <h2> Hey {{user.first_name | default:"Anon"}}! </h2>
             </div>
             <img src="{% static 'img/happy-face.png' %}" class="login-prof-img">
 
          {% else %}
             {% if user.is_staff %}
             <div>
-                <h2> Hey {{user.first_name | default:"Guest"}}! </h2>
+                <h2> Hey {{user.first_name | default:"Anon"}}! </h2>
                 <p> You are a <span class="user-class-text-admin" >HOST</span> user</p>
             </div>
             <a href="{% url 'admin_dash'%}">
@@ -64,11 +63,15 @@
                 </object>
             </a>
             {% else %}
-                <h4> Hey {{user.first_name | default:"Guest"}}! </h4>
+                <div>
+                    <h2> Hey {{user.first_name | default:"Anon"}}! </h2>
+                    <p> You are a <span class="user-class-text-user">GUEST</span> user</p>
+                </div>
                 <a href="{% url 'user_dash'%}">
-                    <img class="login-prof-img" src="{% static 'img/happy-face.png' %}">
+                    <object class="login-prof-img" data="{{ user|get_picture }}" type="image/png">
+                        <img class="login-prof-img" src="{% static 'img/happy-face.png' %}">
+                    </object>
                 </a>
-                <p> You are a <span class="user-class-text-user" >USER</span> </p>
             {% endif %}
          {% endif %}
     </div>
@@ -95,16 +98,10 @@
                 </a>
                 
             {% else %}
-                <h4> Hey {{user.first_name | default:"CavMan"}}! </h4>
-                <h5> Let's Go Out Tonight.</h5>
-                <a href="{% url 'user_dash'%}">
-                    <img src="{{ user|get_picture }}" class="login-prof-img">
+                <h2> Find an event</h2>
+                <a href="{% url 'all_events' %}">
+                    <button class="primary-btn"> View all events</button>
                 </a>
-                <p> You are a <span class="user-class-text-user" >USER</span> </p>
-                <a class="btn btn-outline-dark rounded-pill px-4 login-button" style="border:2px solid #121212" href="{% url 'all_events' %}">
-                    Find an Event!
-                </a>
-                <a class="signout-small" href="{% url 'account_logout' %}">Sign Out</a>
             {% endif %}
          {% endif %}
     </div>

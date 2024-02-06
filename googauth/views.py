@@ -149,6 +149,7 @@ def delete_rsvp(request, rsvp_id, event_id) :
 
     status = True
     message = "Successfully Removed RSVP"
+    messages.success(request, "Successfully removed RSVP")
     Rsvp.objects.all().get(id=rsvp_id).delete()
     print("Deleting", rsvp_id)
     return render(request, 'dashboard/event.html', {'event': event, 'status':status, 'message': message})
@@ -265,6 +266,7 @@ def event_detail(request, pk):
     if form.is_valid():
         data = form.cleaned_data
         message, status = rsvp(data, request.user, pk)
+        messages.error(request, message)
     event = get_object_or_404(Event, pk=pk)
     return render(request, 'dashboard/event.html', {'event': event, 'status':status, 'message': message})
 
