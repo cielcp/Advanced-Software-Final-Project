@@ -32,6 +32,7 @@ urlpatterns = [
     path('admin_dash/', views.admin_dash, name="admin_dash"),
     path('accounts/', include('allauth.urls')),
     path('dashboard/', include('allauth.urls')),
+    path('dashboard/social/signup/', views.choose_role),
     path('create_event/', views.create_event, name='create_event'),
     path('all_events/', views.all_events, name='all_events'),
     # mksingh32 for pop up: path('get_event_data/', views.get_event_data, name='get_event_data'),

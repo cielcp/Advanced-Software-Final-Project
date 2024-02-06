@@ -485,9 +485,31 @@
 
 
 /* 
-    Signout page
-    Author: Elliott Hansen
+    Logout + choose role pages
+    Author: Ciel Park
 */
+.logout-content {
+    display: flex;
+    flex-direction: row;
+    width:auto;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(300%);
+    animation: title-drop-in 0.7s 0.8s ease-in-out forwards normal;
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 15px 15px 0px 0px #222529;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #222529;
+    background-color: white;
+    gap: 20px;
+}
+
+.logout-content:hover {
+    transform: scale(1.03);
+}
+
 .signout-block {
     min-width: 600px;
     width: 35vw;
